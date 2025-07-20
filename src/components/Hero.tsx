@@ -31,7 +31,9 @@ const eventNames = [
   "Baraat Processions",
   "Reception Parties",
   "Pre-Wedding Shoots",
-  "Engagement Moments"
+  "Engagement Moments",
+  "Birthday Celebrations",
+  "Birthday Song Events"
 ];
 
 const Hero: React.FC = () => {
@@ -96,9 +98,9 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-6"
+          className="space-y-4 sm:space-y-6"
         >
-          <div className="h-24 flex items-center justify-center"> {/* Fixed height container */}
+          <div className="h-16 sm:h-24 flex items-center justify-center mt-16 sm:mt-0"> {/* Adjusted height and added margin top for mobile */}
             <AnimatePresence mode="wait">
               <motion.h1
                 key={currentEventIndex}
@@ -106,28 +108,28 @@ const Hero: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.5 }}
-                className="text-5xl md:text-7xl font-elegant text-white"
+                className="text-3xl sm:text-5xl md:text-7xl font-elegant text-white px-4"
               >
                 {eventNames[currentEventIndex]}
               </motion.h1>
             </AnimatePresence>
           </div>
           
-          <div className="flex items-center justify-center space-x-4 mb-8">
+          <div className="flex items-center justify-center space-x-4">
             <div className="h-[2px] w-20 bg-gold" />
             <span className="text-xl md:text-2xl text-gold font-elegant">
-              Mahesh Chimmala
+              Mahesh Chimmalla
             </span>
             <div className="h-[2px] w-20 bg-gold" />
           </div>
 
-          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-elegant">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-elegant px-4">
             Capturing timeless memories. From soulful weddings to vibrant traditions.
           </p>
 
-          <div className="flex items-center justify-center space-x-2 text-gold">
+          <div className="flex items-center justify-center space-x-2 text-gold px-4">
             <Camera size={24} />
-            <span className="text-lg uppercase tracking-wider">
+            <span className="text-base sm:text-lg uppercase tracking-wider">
               Indian Wedding Photographer
             </span>
             <Heart size={24} />
@@ -137,17 +139,17 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="mt-12 space-x-6"
+            className="mt-12 mb-24 sm:mb-0 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4" // Increased bottom margin on mobile
           >
             <button
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-gold text-black px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto bg-gold text-black px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-yellow-400 transition-all duration-300 hover:scale-105"
             >
               View Portfolio
             </button>
             <button
               onClick={() => setIsBookingFormOpen(true)}
-              className="border-2 border-gold text-gold px-8 py-4 rounded-full text-lg font-semibold hover:bg-gold hover:text-black transition-all duration-300 hover:scale-105"
+              className="w-full sm:w-auto border-2 border-gold text-gold px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold hover:bg-gold hover:text-black transition-all duration-300 hover:scale-105"
             >
               Book Now
             </button>
@@ -159,7 +161,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="hidden sm:block absolute bottom-8 left-1/2 transform -translate-x-1/2" // Hide on mobile, show on desktop
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}

@@ -20,6 +20,7 @@ const eventTypes = [
   "Anniversary",
   "Outdoor Couple Shoot",
   "Birthday",
+  "Birthday Songs",
   "Other"
 ];
 

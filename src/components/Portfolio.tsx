@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Play } from 'lucide-react';
+import BookingForm from './BookingForm';
 
 interface PortfolioItem {
   id: number;
@@ -81,6 +82,18 @@ const portfolioData: PortfolioItem[] = [
     title: "Outdoor Couple Shoot",
     category: "Outdoor Shoots",
     image: "https://images.unsplash.com/photo-1630742622927-35340e6d0c69?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: 12,
+    title: "Birthday Party",
+    category: "Birthday",
+    image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    id: 13,
+    title: "Birthday Song Moment",
+    category: "Birthday Songs",
+    image: "https://images.unsplash.com/photo-1558008258-3256797b43f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 
@@ -97,22 +110,19 @@ const categories = [
   "Anniversary",
   "Baby Showers",
   "Outdoor Shoots",
+  "Birthday",
+  "Birthday Songs",
   "Candid Moments"
 ];
 
 const Portfolio: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
   const filteredItems = selectedCategory === "All" 
     ? portfolioData 
     : portfolioData.filter(item => item.category === selectedCategory);
-
-  const handleWhatsAppBooking = () => {
-    const message = `Hi Mahesh! I'm interested in booking your photography services.`;
-    const whatsappUrl = `https://wa.me/919949546867?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
 
   return (
     <section id="portfolio" className="py-20 bg-black">
@@ -203,7 +213,7 @@ const Portfolio: React.FC = () => {
           className="text-center mt-16"
         >
           <button 
-            onClick={handleWhatsAppBooking}
+            onClick={() => setIsBookingFormOpen(true)}
             className="bg-gold text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 transition-all duration-300 hover:scale-105"
           >
             Book Your Special Day
@@ -249,6 +259,16 @@ const Portfolio: React.FC = () => {
               </div>
             </div>
           </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Booking Form */}
+      <AnimatePresence>
+        {isBookingFormOpen && (
+          <BookingForm
+            isOpen={isBookingFormOpen}
+            onClose={() => setIsBookingFormOpen(false)}
+          />
         )}
       </AnimatePresence>
     </section>

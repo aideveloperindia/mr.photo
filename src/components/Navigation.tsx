@@ -18,10 +18,13 @@ const Navigation: React.FC = () => {
   }, []);
 
   const navItems = [
-    { label: 'Home', href: '/#home' },
     { label: 'Portfolio', href: '/#portfolio' },
     { label: 'About', href: '/#about' },
   ];
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -35,7 +38,7 @@ const Navigation: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="/#home" className="flex items-center">
+            <a onClick={scrollToTop} className="flex items-center cursor-pointer">
               <img src="/mr-photo-logo.png" alt="Mr.PHOTO" className="h-12 w-auto" />
             </a>
 
@@ -80,7 +83,7 @@ const Navigation: React.FC = () => {
           >
             <div className="flex flex-col h-full p-8">
               <div className="flex justify-between items-center mb-8">
-                <img src="/mr-photo-logo.png" alt="Mr.PHOTO" className="h-12 w-auto" />
+                <img src="/mr-photo-logo.png" alt="Mr.PHOTO" className="h-12 w-auto" onClick={scrollToTop} />
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="text-white hover:text-gold transition-colors"
