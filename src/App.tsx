@@ -1,20 +1,26 @@
 import React from 'react';
+import { AnimatePresence } from 'framer-motion';
+import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import About from './components/About';
-import Booking from './components/Booking';
 import Footer from './components/Footer';
+import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Hero />
-      <Portfolio />
-      <About />
-      <Booking />
-      <Footer />
-    </div>
+    <AnimatePresence>
+      <div className="bg-black min-h-screen">
+        <Navigation />
+        <main>
+          <Hero />
+          <Portfolio />
+          <About />
+        </main>
+        <Footer />
+      </div>
+    </AnimatePresence>
   );
-}
+};
 
 export default App;

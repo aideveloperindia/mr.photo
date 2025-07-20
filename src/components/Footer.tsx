@@ -14,17 +14,17 @@ const Footer: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <img src="/logo.png" alt="mr.photo" className="h-12 w-auto mb-6" />
+              <img src="/mr-photo-logo.png" alt="Mr.PHOTO" className="h-12 w-auto mb-6" />
               <p className="text-gray-300 mb-6 max-w-md">
                 Capturing timeless memories with passion and precision. From soulful weddings 
                 to vibrant traditions, we preserve your most precious moments.
               </p>
               <div className="flex space-x-4">
                 <a 
-                  href="https://instagram.com/mrphoto" 
+                  href="https://www.instagram.com/_mr.ph0t0/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-gold transition-colors duration-300"
+                  className="text-gray-400 hover:text-gold transition-colors duration-300 transform hover:scale-110"
                 >
                   <Instagram size={24} />
                 </a>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 mr.photo. All rights reserved.
+              © 2024 Mr.PHOTO. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm mt-4 md:mt-0">
               Site by <span className="text-gold">Claude AI Assistant</span>
